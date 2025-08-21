@@ -1,14 +1,20 @@
 {
+  "homepage": "https://orpheusdark.github.io/mental-health-platform",
+
   "name": "mental-health-platform",
   "private": true,
   "version": "0.0.0",
   "type": "module",
+
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
+
   "dependencies": {
     "@picocss/pico": "^2.1.1",
     "@supabase/supabase-js": "^2.52.1",
@@ -18,6 +24,7 @@
     "react-icons": "^5.5.0",
     "react-router-dom": "^7.7.0"
   },
+
   "devDependencies": {
     "@eslint/js": "^9.30.1",
     "@types/react": "^19.1.8",
@@ -26,6 +33,7 @@
     "eslint": "^9.30.1",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
+    "gh-pages": "^6.3.0",
     "globals": "^16.3.0",
     "vite": "^7.0.4"
   }
