@@ -1,0 +1,87 @@
+/*
+  This file now overrides the default variables from Pico.css
+  for both typography and color palette.
+*/
+
+:root {
+  /* Typography Overrides */
+  --font-family: 'Poppins', sans-serif;
+  --line-height: 1.7;
+
+  /* Color Palette Overrides */
+  /* Using a calming teal/blue-green as the primary color */
+  --primary: #00796B; /* Main color for buttons, links, etc. */
+  --primary-hover: #004D40; /* Darker shade for hover effects */
+  --primary-focus: rgba(0, 121, 107, 0.25);
+  --primary-inverse: #FFF;
+
+  /* We can also adjust other colors for a softer look */
+  --background-color: #fdfdfd;
+  --card-background-color: #ffffff;
+  --card-border-color: #e8e8e8;
+  --h1-color: #333;
+  --h2-color: #333;
+  --h3-color: #333;
+}
+
+/* We can also override the default heading weight */
+h1, h2, h3, h4, h5, h6 {
+  --font-weight: 600;
+}
+
+/* Custom style for our danger/delete buttons */
+.button-danger {
+  --background-color: #d32f2f;
+  --border-color: #d32f2f;
+  --color: white;
+}
+.button-danger:hover {
+  --background-color: #b71c1c;
+  --border-color: #b71c1c;
+}
+
+/* ... (your existing @import, :root, h1-h6, and .button-danger styles) ... */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+:root {
+  --font-family: 'Poppins', sans-serif;
+  --line-height: 1.7;
+  --primary: #00796B;
+  --primary-hover: #004D40;
+  --primary-focus: rgba(0, 121, 107, 0.25);
+  --primary-inverse: #FFF;
+  --background-color: #fdfdfd;
+  --card-background-color: #ffffff;
+  --card-border-color: #e8e8e8;
+  --h1-color: #333;
+  --h2-color: #333;
+  --h3-color: #333;
+}
+h1, h2, h3, h4, h5, h6 {
+  --font-weight: 600;
+}
+.button-danger {
+  --background-color: #d32f2f;
+  --border-color: #d32f2f;
+  --color: white;
+}
+.button-danger:hover {
+  --background-color: #b71c1c;
+  --border-color: #b71c1c;
+}
+
+/* Add this animation code at the bottom */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}

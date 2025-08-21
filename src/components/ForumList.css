@@ -1,0 +1,15 @@
+/* In ForumList.css */
+.category-card {
+  border: 1px solid var(--card-border-color, #ddd);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: var(--border-radius);
+  transition: box-shadow 0.3s ease, transform 0.3s ease; /* Smooth transition */
+}
+.category-card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transform: translateY(-5px); /* Lift the card slightly */
+}
+.category-card h3 {
+  margin-top: 0;
+}

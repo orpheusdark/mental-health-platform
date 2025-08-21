@@ -1,0 +1,30 @@
+.skeleton-card {
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.skeleton-line {
+  height: 20px;
+  background-color: #c0c0c0;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  animation: shimmer 1.5s infinite linear;
+}
+
+.skeleton-line.short {
+  width: 60%;
+}
+
+@keyframes shimmer {
+  0% {
+    background-color: #c0c0c0;
+  }
+  50% {
+    background-color: #b0b0b0;
+  }
+  100% {
+    background-color: #c0c0c0;
+  }
+}
