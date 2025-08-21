@@ -7,7 +7,7 @@ import '@picocss/pico/css/pico.min.css'; // Add this new line for Pico
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="mental-health-platform">
       <App />
     </BrowserRouter>
   </React.StrictMode>,
