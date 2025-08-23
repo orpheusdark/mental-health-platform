@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { supabase } from '../supabaseClient';
 import toast from 'react-hot-toast';
-import Avatar from './Avatar'; // Import the new Avatar component
+import Avatar from './Avatar';
+import './PostPage.css'; // Import the new stylesheet
 
 export default function PostPage() {
   const { id } = useParams();
@@ -12,7 +13,6 @@ export default function PostPage() {
   const [newComment, setNewComment] = useState('');
 
   const fetchData = async () => {
-    // ... (This function is unchanged)
     setLoading(true);
     const { data: postData } = await supabase.from('posts').select(`*, profiles ( username )`).eq('id', id).single();
     setPost(postData);
@@ -26,7 +26,6 @@ export default function PostPage() {
   }, [id]);
 
   const handleCreateComment = async (event) => {
-    // ... (This function is unchanged)
     event.preventDefault();
     const { data: { user } } = await supabase.auth.getUser();
     const { error } = await supabase.from('comments').insert({ content: newComment, author_id: user.id, post_id: id });
@@ -34,7 +33,6 @@ export default function PostPage() {
   };
   
   const handleFlag = async (type, contentId) => {
-    // ... (This function is unchanged)
     const tableName = type === 'post' ? 'posts' : 'comments';
     const { error } = await supabase.from(tableName).update({ is_flagged_for_review: true }).eq('id', contentId);
     if (error) { toast.error(error.message); } else { toast.success('Content has been flagged for review. Thank you.'); }
@@ -47,43 +45,41 @@ export default function PostPage() {
     <div>
       <Link to={`/category/${post.category_id}`}>&larr; Back to posts</Link>
       
-      <article>
+      <article className="post-container">
         <h1>{post.title}</h1>
-        <div style={{ display: 'flex', alignItems: 'center', marginBottom: '1rem' }}>
+        <div className="author-info">
           <Avatar username={post.profiles.username} />
-          <p style={{ margin: 0 }}>by <strong>{post.profiles.username || 'Anonymous'}</strong></p>
+          <p>by <strong>{post.profiles.username || 'Anonymous'}</strong></p>
         </div>
-        <p style={{ whiteSpace: 'pre-wrap' }}>{post.content}</p>
+        <p>{post.content}</p>
         <button className="outline secondary" onClick={() => handleFlag('post', post.id)}>Flag Post</button>
       </article>
 
-      <hr />
-
-      <div className="comments-section" style={{ marginTop: '40px' }}>
+      <div className="comment-form">
         <h3>Comments</h3>
         <form onSubmit={handleCreateComment}>
           <textarea placeholder="Write a comment..." value={newComment} onChange={(e) => setNewComment(e.target.value)} required />
           <button type="submit">Submit Comment</button>
         </form>
+      </div>
 
-        <div className="comments-list" style={{ marginTop: '20px' }}>
-          {comments.length > 0 ? (
-            comments.map(comment => (
-              <div key={comment.id} style={{ borderTop: '1px solid #eee', paddingTop: '15px', marginTop: '15px' }}>
-                <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
-                  <Avatar username={comment.profiles.username} />
-                  <strong>{comment.profiles.username || 'Anonymous'}</strong>
-                </div>
-                <p style={{ paddingLeft: '50px' }}>{comment.content}</p>
-                <div style={{ paddingLeft: '50px' }}>
-                  <button className="outline secondary" onClick={() => handleFlag('comment', comment.id)}>Flag Comment</button>
-                </div>
+      <div className="comments-list">
+        {comments.length > 0 ? (
+          comments.map(comment => (
+            <div key={comment.id} className="comment-card">
+              <div className="comment-author">
+                <Avatar username={comment.profiles.username} />
+                <strong>{comment.profiles.username || 'Anonymous'}</strong>
               </div>
-            ))
-          ) : (
-            <p>No comments yet. Be the first to reply!</p>
-          )}
-        </div>
+              <p className="comment-body">{comment.content}</p>
+              <div className="comment-actions">
+                <button className="outline secondary" onClick={() => handleFlag('comment', comment.id)}>Flag Comment</button>
+              </div>
+            </div>
+          ))
+        ) : (
+          <p>No comments yet. Be the first to reply!</p>
+        )}
       </div>
     </div>
   );

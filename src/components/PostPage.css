@@ -1,0 +1,53 @@
+/* Styling for the main post article */
+.post-container {
+  border: 1px solid var(--card-border-color);
+  padding: 1.5rem 2rem;
+  border-radius: var(--border-radius);
+  background-color: var(--card-background-color);
+  margin-bottom: 2rem;
+}
+
+/* Flex container for avatar and username */
+.author-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.author-info p {
+  margin: 0;
+}
+
+/* Styling for the comment input form */
+.comment-form {
+  margin-top: 2.5rem;
+}
+
+/* Styling for the list of comments */
+.comments-list {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Styling for an individual comment card */
+.comment-card {
+  border: 1px solid #eee;
+  padding: 1rem;
+  border-radius: var(--border-radius);
+}
+
+.comment-author {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.comment-body {
+  padding-left: 50px; /* Aligns comment text with the username */
+}
+
+.comment-actions {
+  padding-left: 50px;
+  margin-top: 0.5rem;
+}
