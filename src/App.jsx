@@ -72,7 +72,7 @@ function App() {
         {/* Private App Routes - Wrapped in Layout */}
         <Route
           path="/home"
-          element={<PrivateRoute><Layout session={session} userProfile={userProfile}><Account /></Layout></PrivateRoute>}
+          element={<PrivateRoute><Layout session={session} userProfile={userProfile}><Account session={session} userProfile={userProfile} /></Layout></PrivateRoute>}
         />
         <Route
           path="/library"
