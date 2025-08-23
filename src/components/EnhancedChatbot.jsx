@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { FiMessageCircle, FiX, FiSend, FiUser, FiMinimize2 } from 'react-icons/fi';
 import { FaRobot } from 'react-icons/fa';
 import { faqData } from '../faqData';

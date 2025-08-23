@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { FiSearch, FiFilter, FiX } from 'react-icons/fi';
 
 export default function SearchBar({ 

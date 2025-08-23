@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { faqData } from '../faqData';
 import './Chatbot.css'; // We will create this CSS file next
 

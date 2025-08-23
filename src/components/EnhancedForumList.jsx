@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { supabase } from '../supabaseClient';
 import { Link } from 'react-router-dom';
 import { FiMessageSquare, FiUsers, FiClock, FiTrendingUp } from 'react-icons/fi';
