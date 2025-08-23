@@ -3,11 +3,12 @@ import ReactDOM from 'react-dom/client';
 import App from './App.jsx';
 import './index.css';
 import { BrowserRouter } from 'react-router-dom';
-import '@picocss/pico/css/pico.min.css'; // Add this new line for Pico
+import '@picocss/pico/css/pico.min.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter basename="mental-health-platform">
+    {/* Ensure there is NO basename prop here */}
+    <BrowserRouter>
       <App />
     </BrowserRouter>
   </React.StrictMode>,
