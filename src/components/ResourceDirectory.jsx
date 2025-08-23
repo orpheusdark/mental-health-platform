@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { supabase } from '../supabaseClient';
+import './Card.css'; // Import the new reusable card styles
 
 export default function ResourceDirectory() {
   const [resources, setResources] = useState([]);
@@ -9,7 +10,6 @@ export default function ResourceDirectory() {
   useEffect(() => {
     const fetchResources = async () => {
       setLoading(true);
-      // The RLS policy ensures we only get verified resources
       const { data, error } = await supabase
         .from('resources')
         .select('*')
@@ -32,20 +32,22 @@ export default function ResourceDirectory() {
 
   return (
     <div>
-      <Link to="/">&larr; Back to Forums</Link>
+      <Link to="/home">&larr; Back to Dashboard</Link>
       <h1>Resource Directory</h1>
       <p>A list of verified mental health professionals and organizations.</p>
       
-      <div className="resource-list">
+      {/* Apply the new grid layout */}
+      <div className="card-grid">
         {resources.map(resource => (
-          <div key={resource.id} style={{ border: '1px solid #ccc', padding: '15px', marginBottom: '15px', borderRadius: '5px' }}>
+          // Apply the new card style
+          <article key={resource.id} className="card">
             <h3>{resource.name}</h3>
             <p><strong>Type:</strong> {resource.type}</p>
             <p><strong>Specialization:</strong> {resource.specialization}</p>
             <p><strong>Location:</strong> {resource.location_city}</p>
             <p><strong>Contact:</strong> {resource.contact_info}</p>
             <p>{resource.description}</p>
-          </div>
+          </article>
         ))}
       </div>
     </div>
