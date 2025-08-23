@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
-import { FiMessageCircle, FiX, FiSend, FiUser, FiBot, FiMinimize2 } from 'react-icons/fi';
+import { FiMessageCircle, FiX, FiSend, FiUser, FiMinimize2 } from 'react-icons/fi';
+import { FaRobot } from 'react-icons/fa';
 import { faqData } from '../faqData';
 
 export default function EnhancedChatbot() {
@@ -116,7 +117,7 @@ export default function EnhancedChatbot() {
             <div className="chat-header">
               <div className="header-info">
                 <div className="bot-avatar">
-                  <FiBot />
+                  <FaRobot />
                 </div>
                 <div className="bot-info">
                   <h4>Support Assistant</h4>
@@ -147,7 +148,7 @@ export default function EnhancedChatbot() {
                   {messages.map((msg, index) => (
                     <div key={index} className={`message ${msg.from}`}>
                       <div className="message-avatar">
-                        {msg.from === 'user' ? <FiUser /> : <FiBot />}
+                        {msg.from === 'user' ? <FiUser /> : <FaRobot />}
                       </div>
                       <div className="message-content">
                         <div className="message-bubble">
@@ -177,7 +178,7 @@ export default function EnhancedChatbot() {
                   {isTyping && (
                     <div className="message bot typing">
                       <div className="message-avatar">
-                        <FiBot />
+                        <FaRobot />
                       </div>
                       <div className="message-content">
                         <div className="typing-indicator">
