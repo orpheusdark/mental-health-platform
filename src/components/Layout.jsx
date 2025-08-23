@@ -1,6 +1,6 @@
 import Header from './Header';
 import Footer from './Footer';
-import Chatbot from './Chatbot'; // Re-import the Chatbot
+import EnhancedChatbot from './EnhancedChatbot'; // Import the enhanced Chatbot
 
 export default function Layout({ session, userProfile, children }) {
   return (
@@ -10,7 +10,7 @@ export default function Layout({ session, userProfile, children }) {
         {children}
       </main>
       <Footer />
-      <Chatbot /> {/* Add the Chatbot component back here */}
+      <EnhancedChatbot /> {/* Add the enhanced Chatbot component */}
     </div>
   );
 }
